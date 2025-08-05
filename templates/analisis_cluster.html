@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Cluster</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/analisis_cluster.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>📊 Analisis Cluster Pelanggan</h2>
+            <a href="{{ url_for('dashboard') }}" class="btn-dashboard">⏪ Kembali Ke Dashboard</a> 
+        </div>
+
+        <div class="chart-section">
+            <h4>Distribusi Cluster Pelanggan</h4>
+            <canvas id="pieChart" width="250" height="250"></canvas>
+        </div>
+
+        <div class="card-container">
+            <div class="card vip">
+                <strong>Cluster I - VIP</strong>
+                <p>Pelanggan loyal dengan pembelian rutin dan pengeluaran tinggi. Rekomendasi: Diskon eksklusif.</p>
+            </div>
+            <div class="card reguler">
+                <strong>Cluster II - Reguler</strong>
+                <p>Pelanggan stabil namun tidak terlalu sering. Rekomendasi: Beri voucher berkala.</p>
+            </div>
+            <div class="card pasif">
+                <strong>Cluster III - Pasif</strong>
+                <p>Jarang belanja. Rekomendasi: Kirim notifikasi ajakan dan promo menarik.</p>
+            </div>
+            <div class="card potensial">
+                <strong>Cluster IV - Potensial</strong>
+                <p>Pernah belanja tapi belum aktif. Rekomendasi: Notifikasi ajakan rutin.</p>
+            </div>
+        </div>
+    </div>
+
+     <div class="cluster-summary">
+        <h4>Ringkasan Jumlah Pelanggan per Cluster</h4>
+        <ul>
+            {% for row in cluster_data %}
+                <li><strong>{{ row.cluster }}:</strong> {{ row.jumlah }} pelanggan</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+        const dataFromServer = {{ cluster_data | tojson }};
+        const labels = dataFromServer.map(c => c.cluster);
+        const values = dataFromServer.map(c => c.jumlah);
+
+        const ctx = document.getElementById('pieChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: values,
+                    backgroundColor: ['#facc15', '#3b82f6', '#10b981', '#f472b6']
+                }]
+            },
+            options: {
+                responsive: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.label}: ${context.raw} pelanggan`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

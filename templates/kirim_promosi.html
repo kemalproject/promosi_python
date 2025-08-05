@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirim Promosi Manual</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kirim_promosi.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h2>📤 Kirim Promosi Manual</h2>
+        <a href="{{ url_for('dashboard') }}" class="btn-dashboard">⏪ Kembali ke Dashboard</a>
+    </div>
+
+    <!-- Cluster VIP -->
+    <div class="cluster-box">
+        <div class="cluster-header vip">Cluster VIP</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Nomor HP</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in vip %}
+                <tr>
+                    <td>{{ user.nama }}</td>
+                    <td>{{ user.nomor_hp }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Cluster Reguler -->
+    <div class="cluster-box">
+        <div class="cluster-header reguler">Cluster Reguler</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Nomor HP</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in reguler %}
+                <tr>
+                    <td>{{ user.nama }}</td>
+                    <td>{{ user.nomor_hp }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Cluster Pasif -->
+    <div class="cluster-box">
+        <div class="cluster-header pasif">Cluster Pasif</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Nomor HP</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in pasif %}
+                <tr>
+                    <td>{{ user.nama }}</td>
+                    <td>{{ user.nomor_hp }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Cluster Potensial -->
+    <div class="cluster-box">
+        <div class="cluster-header potensial">Cluster Potensial</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Nomor HP</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in potensial %}
+                <tr>
+                    <td>{{ user.nama }}</td>
+                    <td>{{ user.nomor_hp }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

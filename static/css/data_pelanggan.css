@@ -1,0 +1,80 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f6f8;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.btn-dashboard {
+    background-color: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-section, .table-section {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px #ddd;
+    margin-bottom: 30px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+input {
+    padding: 10px;
+    border: none;
+    background: #e5e7eb;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.btn-simpan {
+    background-color: #10b981;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.table-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-section th, .table-section td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-section th {
+    background-color: #f3f4f6;
+}
+
+.cluster.vip { color: #3b82f6; font-weight: bold; }
+.cluster.reguler { color: #10b981; font-weight: bold; }
+.cluster.pasif { color: #facc15; font-weight: bold; }
+.cluster.potensial { color: #ef4444; font-weight: bold; }

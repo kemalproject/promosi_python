@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pelanggan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/data_pelanggan.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Data Pelanggan</h2>
+            <a href="{{ url_for('dashboard') }}" class="btn-dashboard">Kembali ke Dashboard</a>
+        </div>
+
+        <div class="form-section">
+            <h4>Tambah Pelanggan</h4>
+            <form action="/tambah_pelanggan" method="POST">
+                <div class="form-grid">
+        <input type="text" name="nama" placeholder="Nama" required>
+        <input type="text" name="nominal" placeholder="Nominal Pembelian" required>
+        <input type="date" name="tanggal" placeholder="Tanggal Pembelian" required>
+        <input type="number" name="jumlah" placeholder="Jumlah Transaksi" required>
+        <input type="text" name="nomor_hp" placeholder="Nomor HP">
+    </div>
+                <button type="submit" class="btn-simpan">SIMPAN</button>
+            </form>
+        </div>
+
+        <div class="table-section">
+            <h4>Tabel Pelanggan</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>No. HP</th>
+                        <th>Alamat</th>
+                        <th>Jumlah Transaksi</th>
+                        <th>Total Pengeluaran</th>
+                        <th>Rata-rata Pengeluaran</th>
+                        <th>Terakhir Belanja</th>
+                        <th>Cluster</th>
+                    </tr>
+                </thead>
+                <tbody>
+    {% for p in pelanggan %}
+    <tr>
+        <td>{{ p.id }}</td>
+        <td>{{ p.nama }}</td>
+        <td>{{ p.no_hp }}</td>
+        <td>{{ p.alamat }}</td>
+        <td>{{ p.jumlah_transaksi }}</td>
+        <td>
+    {% if p.total_pengeluaran %}
+        Rp {{ "{:,.0f}".format(p.total_pengeluaran) }}
+    {% else %}
+        -
+    {% endif %}
+</td>
+<td>
+    {% if p.rata_pengeluaran %}
+        Rp {{ "{:,.0f}".format(p.rata_pengeluaran) }}
+    {% else %}
+        -
+    {% endif %}
+</td>
+
+        <td>{{ p.terakhir_belanja }}</td>
+        <td><span class="cluster {{ p.cluster|lower }}">{{ p.cluster }}</span></td>
+    </tr>
+    {% endfor %}
+</tbody>
+
+            </table>
+        </div>
+    </div>
+</body>
+</html>

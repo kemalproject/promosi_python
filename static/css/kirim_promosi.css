@@ -1,0 +1,86 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f6f8;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.btn-dashboard {
+    background-color: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cluster-box {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px #ddd;
+}
+
+.cluster-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.cluster-header.vip {
+    color: #1e40af;
+}
+
+.cluster-header.reguler {
+    color: #15803d;
+}
+
+.btn-promosi {
+    background-color: #22c55e;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #f1f5f9;
+}
+
+th, td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    font-weight: 600;
+}
+.cluster-header.pasif {
+    color: #f59e0b;
+}
+.cluster-header.potensial {
+    color: #dc2626;
+}

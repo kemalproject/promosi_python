@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>HALLO KEMAL!</h2>
+            <p>Apakah tugasmu sudah selesai?</p>
+            <a href="{{ url_for('logout') }}"><button class="logout-btn">LOGOUT</button></a>
+
+        </div>
+
+        <div class="profile-card">
+            <div class="avatar">KY</div>
+            <div class="profile-info">
+                <h3>Kemal</h3>
+                <p>Admin</p>
+                <p>kemal@domain.com</p>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">Cluster VIP <span class="orange">{{ vip }}</span></div>
+<div class="stat-box">Cluster Reguler <span class="green">{{ reguler }}</span></div>
+<div class="stat-box">Cluster Pasif <span class="gray">{{ pasif }}</span></div>
+<div class="stat-box">Cluster Potensial <span class="blue">{{ potensial }}</span></div>
+</div>
+
+        <div class="menu">
+    <a href="{{ url_for('data_pelanggan') }}" class="menu-btn blue">📁 Data Pelanggan</a>
+    <a href="{{ url_for('analisis_cluster') }}" class="menu-btn purple">📊 Analisis Cluster</a>
+    <a href="{{ url_for('kirim_promosi') }}" class="menu-btn pink">🧃 Kirim Promosi</a>
+    <a href="{{ url_for('data_barang') }}" class="menu-btn yellow">📦 Data Barang</a>
+</div>
+
+    </div>
+</body>
+</html>
